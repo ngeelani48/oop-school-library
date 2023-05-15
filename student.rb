@@ -1,6 +1,6 @@
 require './person'
 
-class Student < person
+class Student < Person
   def initialize(classroom)
     super()
     @classroom = classroom
