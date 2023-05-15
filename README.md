@@ -109,31 +109,20 @@ Example command:
 
 ### Run tests
 
-To run tests, run the following command:
+To track linter errors locally follow these steps:  
 
-<!--
-Example command:
-
-```sh
-  bin/rails test test/models/article_test.rb
 ```
---->
+rubocop
+```
 
 ### Deployment
 
 You can deploy this project using:
 
-<!--
-Example:
-
-```sh
-
-```
- -->
+N/A
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- AUTHORS -->
 
 ## 👥 Authors <a name="authors"></a>
 
@@ -145,12 +134,11 @@ Example:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- **--**
-- **--**
+- **preserve data**
+- **unit tests**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
