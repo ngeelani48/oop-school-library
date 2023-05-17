@@ -27,6 +27,9 @@ class Person < Nameable
   end
 end
 
+# for seeing decorators in action
+# some names are updated for fixing the linters
+
 person = Person.new(age: 22, name: 'maximilianus')
 puts person.correct_name
 capitalized_person = CapitalizeDecorator.new(nameable: person)
