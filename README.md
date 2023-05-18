@@ -19,7 +19,6 @@
     - [Install](#install)
     - [Usage](#usage)
     - [Run tests](#run-tests)
-    - [Deployment](#deployment)
   - [👥 Authors ](#-authors-)
   - [🔭 Future Features ](#-future-features-)
   - [🤝 Contributing ](#-contributing-)
@@ -94,18 +93,18 @@ Clone this repository to your desired folder:
 
 Install this project with:
 
+```
+ bundle install
+```
+
 
 ### Usage
 
 To run the project, execute the following command:
 
-<!--
-Example command:
-
-```sh
-  rails server
 ```
---->
+ ruby filename.rb
+```
 
 ### Run tests
 
@@ -114,12 +113,6 @@ To track linter errors locally follow these steps:
 ```
 rubocop
 ```
-
-### Deployment
-
-You can deploy this project using:
-
-N/A
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
