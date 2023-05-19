@@ -39,7 +39,7 @@ class App
       puts 'No people found'
     else
       @people.each do |person|
-        puts "[#{person[0]}]Name: #{person[1].name}, ID: #{person[1].id}, Age: #{person[1].age}"
+        puts "[#{persons[0]}]Name: #{person[1].name}, ID: #{person[1].id}, Age: #{person[1].age}"
       end
     end
   end
@@ -146,7 +146,7 @@ class App
 
     options = {
       '1' => method(:display_books),
-      '2' => method(:display_people),
+      '2' => method(:display__people),
       '3' => method(:add_new_person),
       '4' => method(:create_book),
       '5' => method(:rent_book),
