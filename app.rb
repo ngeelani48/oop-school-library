@@ -28,20 +28,20 @@ class App
 
   def display_books
     if @books.empty?
-        puts 'No books found'
-      else
-        @books.each { |book| puts "Title: \"#{book.title}\", Author: #{book.author}" }
-      end
+      puts 'No books found'
+    else
+      @books.each { |book| puts "Title: \"#{book.title}\", Author: #{book.author}" }
+    end
   end
 
   def display_people
     if @people.empty?
-        puts 'No people found'
+      puts 'No people found'
     else
-    @people.each do |person|
-      puts "[#{person[0]}]Name: #{person[1].name}, ID: #{person[1].id}, Age: #{person[1].age}"
+      @people.each do |person|
+        puts "[#{person[0]}]Name: #{person[1].name}, ID: #{person[1].id}, Age: #{person[1].age}"
+      end
     end
-end
   end
 
   def add_student
@@ -144,27 +144,31 @@ end
   def run
     welcome
 
+    options = {
+      '1' => method(:display_books),
+      '2' => method(:display_people),
+      '3' => method(:add_new_person),
+      '4' => method(:create_book),
+      '5' => method(:rent_book),
+      '6' => method(:list_rentals),
+      '7' => method(:exit_message),
+      'q' => method(:exit_message),
+      'quit' => method(:exit_message)
+    }
+
     loop do
       menu
       option = gets.chomp
 
-      case option
-      when '1'
-        display_books
-      when '2'
-        display_people
-      when '3'
-        add_new_person
-      when '4'
-        create_book
-      when '5'
-        rent_book
-      when '6'
-        list_rentals
-      when '7', 'q', 'quit'
-        break
-      end
+      break if %w[7 q quit].include?(option)
+
+      options[option]&.call
     end
+
+    exit_message
+  end
+
+  def exit_message
     puts 'Thank you for using this app!'
   end
 end
