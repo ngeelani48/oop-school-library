@@ -1,6 +1,6 @@
-require './app'
+require './welcome'
 def main
-  app = App.new
-  app.run
+  welcome = welcome.new
+  welcome.run
 end
 main

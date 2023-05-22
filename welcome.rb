@@ -8,17 +8,6 @@ class Welcome
     puts 'Welcome to School Library App!'
   end
 
-  def menu
-    puts 'Please choose an option by entering a number:'
-    puts "\t1 - List all books"
-    puts "\t2 - List all people"
-    puts "\t3 - Create a person"
-    puts "\t4 - Create a book"
-    puts "\t5 - Create a rental"
-    puts "\t6 - List all rentals for a given person id"
-    puts "\t7 - Exit"
-  end
-
   def display_books
     @app.display_books
   end
@@ -49,9 +38,17 @@ class Welcome
 
   def run
     greet
-    menu
 
     loop do
+      puts 'Please choose an option by entering a number:'
+      puts "\t1 - List all books"
+      puts "\t2 - List all people"
+      puts "\t3 - Create a person"
+      puts "\t4 - Create a book"
+      puts "\t5 - Create a rental"
+      puts "\t6 - List all rentals for a given person id"
+      puts "\t7 - Exit"
+
       option = gets.chomp
 
       case option
@@ -76,3 +73,7 @@ class Welcome
     end
   end
 end
+
+app = App.new
+welcome = Welcome.new(app)
+welcome.run
