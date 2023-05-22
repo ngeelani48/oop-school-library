@@ -1,11 +1,11 @@
 require_relative './app'
-
 class Welcome
-    def initialize
-    @app = App.new
+  def initialize(app)
+    @app = app
   end
-def welcome
-    puts 'Welcome to School Library App!\n'
+
+  def greet
+    puts 'Welcome to School Library App!'
   end
 
   def menu
@@ -19,19 +19,60 @@ def welcome
     puts "\t7 - Exit"
   end
 
+  def display_books
+    @app.display_books
+  end
+
+  def display_people
+    @app.display_people
+  end
+
+  def add_new_person
+    @app.add_new_person
+  end
+
+  def create_book
+    @app.create_book
+  end
+
+  def rent_book
+    @app.rent_book
+  end
+
+  def list_rentals
+    @app.list_rentals
+  end
+
+  def exit_message
+    puts 'Thank you for using this app!'
+  end
+
   def run
-    @start.welcome
+    greet
+    menu
 
-    options = {
-      '1' => method(:display_books),
-      '2' => method(:display_people),
-      '3' => method(:add_new_person),
-      '4' => method(:create_book),
-      '5' => method(:rent_book),
-      '6' => method(:list_rentals),
-      '7' => method(:exit_message),
-      'q' => method(:exit_message),
-      'quit' => method(:exit_message)
-    }
+    loop do
+      option = gets.chomp
 
+      case option
+      when '1'
+        display_books
+      when '2'
+        display_people
+      when '3'
+        add_new_person
+      when '4'
+        create_book
+      when '5'
+        rent_book
+      when '6'
+        list_rentals
+      when '7', 'q', 'quit'
+        exit_message
+        break
+      else
+        puts 'Invalid option. Please try again.'
+      end
+    end
+  end
 end

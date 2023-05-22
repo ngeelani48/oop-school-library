@@ -3,7 +3,6 @@ require_relative './teacher'
 require_relative './rental'
 require_relative './book'
 require_relative './person'
-require_relative './welcome'
 
 class App
   def initialize
@@ -12,7 +11,9 @@ class App
     @rentals = []
   end
 
-  @start = Welcome.new
+  def welcome
+    puts 'Welcome to School Library App!'
+  end
 
   def display_books
     if @books.empty?
@@ -77,72 +78,54 @@ class App
   end
 
   def create_book
-    print 'Title : '
+    print 'Title: '
     title_input = gets.chomp
 
-    print 'Author : '
+    print 'Author: '
     author_input = gets.chomp
 
     book = Book.new(title_input, author_input)
     @books.push(book)
-    puts 'Book created successfully!!'
+    puts 'Book created successfully!'
   end
 
   def rent_book
-    puts 'Select a book from the following list by number'
+    puts 'Select a book from the following list by number:'
     @books.each_with_index do |book, index|
-      puts "#{index}) Title: '#{book.title}' , Author: #{book.author}"
+      puts "#{index}) Title: '#{book.title}', Author: #{book.author}"
     end
-    book_choice = gets.chomp
+    book_choice = gets.chomp.to_i
 
-    puts 'Select a person from the following list by number (not id)'
+    puts 'Select a person from the following list by number (not id):'
     @people.each_with_index do |person, index|
-      puts "#{index}) [#{person[0]}]Name: #{person[1].name}, ID: #{person[1].id}, Age: #{person[1].age}"
+      puts "#{index}) [#{person[0]}] Name: #{person[1].name}, ID: #{person[1].id}, Age: #{person[1].age}"
     end
-    person_choice = gets.chomp
+    person_choice = gets.chomp.to_i
 
     print 'Date: '
     date = gets.chomp
 
-    Rental.new(date, @books[book_choice.to_i], @people[person_choice.to_i][1])
-    puts 'Rental created successfully'
+    rental = Rental.new(date, @books[book_choice], @people[person_choice][1])
+    @rentals.push(rental)
+    puts 'Rental created successfully!'
   end
 
   def list_rentals
     print 'ID of person: '
-    id = gets.chomp
-    rentals = find_rental(id)
-    puts 'Rentals: '
+    id = gets.chomp.to_i
+    rentals = find_rentals(id)
+    puts 'Rentals:'
     rentals.each do |rental|
-      puts "Date: #{rental.date}, Book: #{rental.book.title} by #{rental.book.author}"
+      puts "#{rental.date}, Book: #{rental.book.title} by #{rental.book.author}"
     end
   end
 
-  def find_rental(id)
+  def find_rentals(id)
     rentals_by_id = []
-    @people.each do |person|
-      if person[1].id == id.to_i
-        rentals_by_id = person[1].rentals
-        rentals_by_id
-      end
+    @rentals.each do |rental|
+      rentals_by_id << rental if rental.person.id == id
     end
     rentals_by_id
   end
-
- 
-    loop do
-      @start.menu
-      option = gets.chomp
-
-      break if %w[7 q quit].include?(option)
-
-      options[option]&.call
-    end
-
-    exit_message
-  end
-
-  def exit_message
-    puts 'Thank you for using this app!'
-  end
 end
+
