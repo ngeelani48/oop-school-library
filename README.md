@@ -125,6 +125,12 @@ rubocop
 - Twitter: [@twitterhandle](https://twitter.com/ngeelani48)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/muhammad-nafees/)
 
+👤 **Kelvin kaviku**
+
+- GitHub: [@brainskev](https://github.com/brainskev/)
+- Twitter: [@kelvin_ngotho](https://twitter.com/kevin_ngotho?s=09/)
+- LinkedIn: [kelvin](https://www.linkedin.com/in/kelvinkaviku/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
