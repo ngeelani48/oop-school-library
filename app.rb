@@ -3,6 +3,7 @@ require_relative './teacher'
 require_relative './rental'
 require_relative './book'
 require_relative './person'
+require_relative './welcome'
 
 class App
   def initialize
@@ -11,20 +12,7 @@ class App
     @rentals = []
   end
 
-  def welcome
-    puts 'Welcome to School Library App!\n'
-  end
-
-  def menu
-    puts 'Please choose an option by entering a number:'
-    puts "\t1 - List all books"
-    puts "\t2 - List all people"
-    puts "\t3 - Create a person"
-    puts "\t4 - Create a book"
-    puts "\t5 - Create a rental"
-    puts "\t6 - List all rentals for a given person id"
-    puts "\t7 - Exit"
-  end
+  @start = Welcome.new
 
   def display_books
     if @books.empty?
@@ -39,7 +27,7 @@ class App
       puts 'No people found'
     else
       @people.each do |person|
-        puts "[#{persons[0]}]Name: #{person[1].name}, ID: #{person[1].id}, Age: #{person[1].age}"
+        puts "[#{person[0]}]Name: #{person[1].name}, ID: #{person[1].id}, Age: #{person[1].age}"
       end
     end
   end
@@ -142,11 +130,11 @@ class App
   end
 
   def run
-    welcome
+    @start.welcome
 
     options = {
       '1' => method(:display_books),
-      '2' => method(:display__people),
+      '2' => method(:display_people),
       '3' => method(:add_new_person),
       '4' => method(:create_book),
       '5' => method(:rent_book),
@@ -157,7 +145,7 @@ class App
     }
 
     loop do
-      menu
+      @start.menu
       option = gets.chomp
 
       break if %w[7 q quit].include?(option)
