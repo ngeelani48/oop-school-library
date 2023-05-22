@@ -1,6 +1,6 @@
 require './welcome'
 def main
-  welcome = welcome.new
+  welcome = Welcome.new
   welcome.run
 end
 main

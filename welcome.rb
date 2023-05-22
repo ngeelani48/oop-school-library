@@ -39,38 +39,42 @@ class Welcome
   def run
     greet
 
+    options = {
+      '1' => method(:display_books),
+      '2' => method(:display_people),
+      '3' => method(:add_new_person),
+      '4' => method(:create_book),
+      '5' => method(:rent_book),
+      '6' => method(:list_rentals),
+      '7' => method(:exit_message),
+      'q' => method(:exit_message),
+      'quit' => method(:exit_message)
+    }
+
     loop do
-      puts 'Please choose an option by entering a number:'
-      puts "\t1 - List all books"
-      puts "\t2 - List all people"
-      puts "\t3 - Create a person"
-      puts "\t4 - Create a book"
-      puts "\t5 - Create a rental"
-      puts "\t6 - List all rentals for a given person id"
-      puts "\t7 - Exit"
+      display_menu
 
       option = gets.chomp
 
-      case option
-      when '1'
-        display_books
-      when '2'
-        display_people
-      when '3'
-        add_new_person
-      when '4'
-        create_book
-      when '5'
-        rent_book
-      when '6'
-        list_rentals
-      when '7', 'q', 'quit'
-        exit_message
-        break
+      action = options[option]
+      if action
+        action.call
+        break if %w[7 q quit].include?(option)
       else
         puts 'Invalid option. Please try again.'
       end
     end
+  end
+
+  def display_menu
+    puts 'Please choose an option by entering a number:'
+    puts "\t1 - List all books"
+    puts "\t2 - List all people"
+    puts "\t3 - Create a person"
+    puts "\t4 - Create a book"
+    puts "\t5 - Create a rental"
+    puts "\t6 - List all rentals for a given person id"
+    puts "\t7 - Exit"
   end
 end
 
