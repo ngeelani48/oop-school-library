@@ -129,21 +129,7 @@ class App
     rentals_by_id
   end
 
-  def run
-    @start.welcome
-
-    options = {
-      '1' => method(:display_books),
-      '2' => method(:display_people),
-      '3' => method(:add_new_person),
-      '4' => method(:create_book),
-      '5' => method(:rent_book),
-      '6' => method(:list_rentals),
-      '7' => method(:exit_message),
-      'q' => method(:exit_message),
-      'quit' => method(:exit_message)
-    }
-
+ 
     loop do
       @start.menu
       option = gets.chomp
