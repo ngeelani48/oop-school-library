@@ -34,6 +34,7 @@ class Welcome
 
   def exit_message
     puts 'Thank you for using this app!'
+    @app.exit_app
   end
 
   def run
