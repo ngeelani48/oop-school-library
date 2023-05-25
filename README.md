@@ -114,6 +114,12 @@ To track linter errors locally follow these steps:
 rubocop
 ```
 
+To run tests for any file in your project:  
+
+```
+rspec tests/testfilename.rb
+```
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
