@@ -2,7 +2,7 @@ require 'rspec'
 require_relative '../teacher'
 require_relative '../person'
 
-RSpec.describe Teacher do
+describe Teacher do
   let(:teacher) { described_class.new('Math', 35, 'Jane Smith') }
 
   describe '#initialize' do
