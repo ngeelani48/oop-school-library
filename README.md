@@ -30,7 +30,7 @@
 
 # 📖 [OOP school library] <a name="about-project"></a>
 
-**OOP school library** is an app that allow uset to:
+**OOP school library** is an app that allows user to:
 
 - **Add new students or teachers.**
 - **Add new books.**
@@ -68,7 +68,7 @@ To get a local copy up and running, follow these steps.
 
 ### Prerequisites
 
-In order to run this project you need ruby installed:
+To run this project you need ruby installed:
 
 On Linux:
 
@@ -78,7 +78,7 @@ On Linux:
 
 On Windows
 
-Go to [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/about) to set up wsl for ubuntu
+Go to [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/about) to set up wsl for Ubuntu
 
 ### Setup
 
@@ -117,7 +117,7 @@ rubocop
 To run tests for any file in your project:  
 
 ```
-rspec tests/testfilename.rb
+RSpec tests/test filename.rb
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
